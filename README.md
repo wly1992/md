@@ -107,12 +107,12 @@ n个...貌似可以一直加下去
 示例：
 
 ```
-![blockchain](https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=702257389,1274025419&fm=27&gp=0.jpg "区块链")
+![blockchain](https://uufe-web.oss-cn-beijing.aliyuncs.com/PicLib/bomb/images/feedback1_1547864347894.png "区块链")
 ```
 
 效果如下：
 
-![blockchain](https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=702257389,1274025419&fm=27&gp=0.jpg "区块链")
+![blockchain](https://uufe-web.oss-cn-beijing.aliyuncs.com/PicLib/bomb/images/feedback1_1547864347894.png "区块链")
 
 # 六、超链接
 
@@ -126,7 +126,6 @@ title可加可不加
 示例：
 
 ```
-[简书](http://jianshu.com)
 [百度](http://baidu.com)
 ```
 
@@ -138,13 +137,16 @@ title可加可不加
 
 ```
 <a href="超链接地址" target="_blank">超链接名</a>
-示例
-<a href="https://www.jianshu.com/u/1f5ac0cf6a8b" target="_blank">简书</a>
 ```
+
+示例:
+
+<a href="https://www.jianshu.com/u/1f5ac0cf6a8b" target="_blank">简书</a>
+
 
 # 七、列表
 
-- 无序列表
+- **无序列表**
 
 效果如下：
 
@@ -163,7 +165,7 @@ title可加可不加
   注意：- + * 跟内容之间都要有一个空格
 ```
 
-- 有序列表
+- **有序列表**
 
 效果如下：
 
@@ -182,18 +184,16 @@ title可加可不加
 注意：序号跟内容之间要有空格
 ```
 
-- 列表嵌套
+- **列表嵌套**
 
 **上一级和下一级之间敲三个空格即可**
 
 - 一级无序列表内容
    - 二级无序列表内容
    - 二级无序列表内容
-   - 二级无序列表内容
-- 一级无序列表内容
-   - 二级无序列表内容
-   - 二级无序列表内容
-   - 二级无序列表内容
+1. 一级有序列表内容
+   1. 二级有序列表内容
+   2. 二级有序列表内容
 
 # 八、表格
 
@@ -234,25 +234,27 @@ title可加可不加
 代码块：代码之间分别用三个反引号包起来，且两边的反引号单独占一行
 
 ```
-&#96;&#96;&#96;
+（```）;
    代码...
    代码...
    代码...
-&#96;&#96;&#96;
+(```)
 ```
+
+>为了防止转译，前后三个反引号处加了小括号，实际是没有的。这里只是用来演示，实际中去掉两边小括号即可。
 
 # 十、流程图
 
 ```
-  &#96;&#96;&#96;flow
+  ```flow
   st=>start: 开始
   op=>operation: My Operation
   cond=>condition: Yes or No?
   e=>end
   st->op->cond
   cond(yes)->e
-  cond(no)->op
-  &#96;&#96;&#96;
+  cond(no)->op&
+  ```;
 ```
 
 效果如下：
@@ -309,12 +311,12 @@ $$	x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$
 
 ```
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/17680888/47480646-abc55b80-d863-11e8-9337-4ea768ebe55d.png">
+  <img src="https://uufe-web.oss-cn-beijing.aliyuncs.com/PicLib/bomb/images/feedback1_1547864347894.png">
 </p>
 ```
 
 效果如下：
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/17680888/47480646-abc55b80-d863-11e8-9337-4ea768ebe55d.png">
+  <img src="https://uufe-web.oss-cn-beijing.aliyuncs.com/PicLib/bomb/images/feedback1_1547864347894.png">
 </p>
