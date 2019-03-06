@@ -1,5 +1,4 @@
-
-<h1 align="center">markdown grammar</h1>
+# MARKDOWN 语法
 
 # 一、标题
 
@@ -21,8 +20,8 @@
 
 效果如下：
 
-# 这是一级标题
-## 这是二级标题
+# 这是一级标题 {docsify-ignore}
+## 这是二级标题 {docsify-ignore}
 ### 这是三级标题
 #### 这是四级标题
 ##### 这是五级标题
