@@ -1,15 +1,11 @@
-![logo](https://uufe-web.oss-cn-beijing.aliyuncs.com/PicLib/bomb/images/feedback1_1547864347894.png)
+<!-- ![logo](/assets/img/logo.jpg =100x100) -->
+<img src="/assets/img/logo.jpg" width = "300" height = "300" alt="图片名称" align=center />
 
-# docsify
+# 个人笔记
 
-> A magical documentation site generator.
+> 整理记录一些自己的笔记
 
-* Simple and lightweight (~12kb gzipped)
-* Multiple themes
-* Not build static html files
-
-[GitHub](https://github.com/docsifyjs/docsify/)
-[Get Started](#quick-start)
+[Get Started](/note)
 
 <!-- 背景图片 -->
 
