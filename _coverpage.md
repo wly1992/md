@@ -5,7 +5,7 @@
 
 > 整理记录一些自己的笔记
 
-[Get Started](/note)
+[Get Started](/README)
 
 <!-- 背景图片 -->
 

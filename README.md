@@ -1,321 +1,107 @@
-# MARKDOWN 语法
+# 随手记
 
-# 一、标题
+# import
 
-在想要设置为标题的文字前面加#来表示
-一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。
+import * as xxx from 'xxx' 会将若干export导出的内容组合成一个对象返回
 
->注：标准语法一般在#后跟个空格再写文字。
-
-示例：
+例如：
 
 ```
-  # 这是一级标题
-  ## 这是二级标题
-  ### 这是三级标题
-  #### 这是四级标题
-  ##### 这是五级标题
-  ###### 这是六级标题
+export const getStatus = () => {}
+
+export const getStatus1 = () => {}
+
+export const getStatus2 = () => {}
 ```
 
-效果如下：
+import xxx from 'xxx' 只会导出这个默认的对象作为一个对象
 
-# 这是一级标题 {docsify-ignore}
-## 这是二级标题 {docsify-ignore}
-### 这是三级标题
-#### 这是四级标题
-##### 这是五级标题
-###### 这是六级标题
-
-# 二、字体
-
-- **加粗**
-要加粗的文字左右分别用两个*号包起来
-- **斜体**
-要倾斜的文字左右分别用一个*号包起来
-- **斜体加粗**
-要倾斜和加粗的文字左右分别用三个*号包起来
-- **删除线**
-要加删除线的文字左右分别用两个~~号包起来
-
-示例：
+例如：
 
 ```
-  **这是加粗的文字**
-  *这是倾斜的文字*`
-  ***这是斜体加粗的文字***
-  ~~这是加删除线的文字~~
+export default const getStatus = () => {}
 ```
 
-效果如下：
+import { getStatus } form 'xxx' 按需引入
 
-**这是加粗的文字**
-*这是倾斜的文字*`
-***这是斜体加粗的文字***
-~~这是加删除线的文字~~
-
-# 三、引用
-
-在引用的文字前加>即可。引用也可以嵌套，如加两个>>三个>>>
-n个...貌似可以一直加下去
-
-示例：
+例如：
 
 ```
-  >这是引用的内容
-  >>这是引用的内容
-  >>>>>>>>>>这是引用的内容
+export const getStatus = () => {}
+export const getStatus1 = () => {}
 ```
 
-效果如下：
-
->这是引用的内容
->>这是引用的内容
->>>>>>>>>>这是引用的内容
-
-# 四、分割线
-
-三个或者三个以上的 - 或者 * 都可以。
-
-示例：
+# Set
 
 ```
- ---
- ----
- ***
- ****
+let array = Array.from(new Set([1, 1, 1, 2, 3, 2, 4]));
 ```
 
-效果如下：
+# preload
 
----
-----
-***
-*****
-
-# 五、图片
-
-语法：
+ link元素的 rel 属性的属性值preload能够让你在你的HTML页面中 head 元素内部书写一些声明式的资源获取请求，可以指明哪些资源是在页面加载完成后即刻需要的。对于这种即刻需要的资源，你可能希望在页面加载的生命周期的早期阶段就开始获取，在浏览器的主渲染机制介入前就进行预加载。这一机制使得资源可以更早的得到加载并可用，且更不易阻塞页面的初步渲染，进而提升性能。
 
 ```
-![图片alt](图片地址 ''图片title'')
-图片alt就是显示在图片下面的文字，相当于对图片内容的解释。
-图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加
+ <link rel="stylesheet" href="styles/main.css">
+ <link rel="preload" href="sintel-short.mp4" as="video" type="video/mp4">
+ <link rel="preload" href="fonts/cicle_fina-webfont.eot" as="font" type="application/vnd.ms-fontobject" crossorigin="anonymous">
+ <link rel="preload" href="bg-image-narrow.png" as="image" media="(max-width: 600px)">
 ```
 
-示例：
+脚本化预加载
+```
+var preloadLink = document.createElement("link");
+preloadLink.href = "myscript.js";
+preloadLink.rel = "preload";
+preloadLink.as = "script";
+document.head.appendChild(preloadLink);
+```
+浏览器兼容性:
+
+Chrome|Firefox |Internet Explorer|Opera|Safari
+:--:|:--:|:--:|:--:|:--:
+50.0|	56 (56)|未实现|47|11
+
+# HTML DOM classList 属性
+
+- add
+
+在元素中添加一个或多个类名，如果指定的类名已存在，则不会添加
 
 ```
-![blockchain](https://uufe-web.oss-cn-beijing.aliyuncs.com/PicLib/bomb/images/feedback1_1547864347894.png "区块链")
+document.getElementById("myDIV").classList.add("mystyle");
 ```
 
-效果如下：
+- contains
 
-![blockchain](https://uufe-web.oss-cn-beijing.aliyuncs.com/PicLib/bomb/images/feedback1_1547864347894.png "区块链")
-
-# 六、超链接
-
-语法：
+返回布尔值，判断指定的类名是否存在。
 
 ```
-[超链接名](超链接地址 "超链接title")
-title可加可不加
+document.getElementById("myDIV").classList.contains("mystyle");
 ```
 
-示例：
+- item(index)
+
+返回元素中索引值对应的类名。索引值从 0 开始。如果索引值在区间范围外则返回 null
 
 ```
-[百度](http://baidu.com)
+document.getElementById("myDIV").classList.item(0);
 ```
 
-效果如下：
+- remove
 
-[百度](http://baidu.com)
+移除元素中一个或多个类名。
 
->注：Markdown本身语法不支持链接在新页面中打开，有的平台做了处理，是可以的。别的平台可能就不行了，如果想要在新页面中打开的话可以用html语言的a标签代替。
-
-```
-<a href="超链接地址" target="_blank">超链接名</a>
-```
-
-示例:
-
-<a href="http://baidu.com" target="_blank">百度</a>
-
-
-# 七、列表
-
-- **无序列表**
-
-效果如下：
-
-- 列表内容
-+ 列表内容
-* 列表内容
-
-语法：
-
-无序列表用 - + * 任何一种都可以
+> 注意： 移除不存在的类名，不会报错。
 
 ```
-  - 列表内容
-  + 列表内容
-  * 列表内容
-  注意：- + * 跟内容之间都要有一个空格
+document.getElementById("myDIV").classList.remove("mystyle");
 ```
 
-- **有序列表**
+- toggle
 
-效果如下：
-
-1. 列表内容
-2. 列表内容
-3. 列表内容
-
-语法：
-
-数字加点
+在元素中切换类名。
 
 ```
-1. 列表内容
-2. 列表内容
-3. 列表内容
-注意：序号跟内容之间要有空格
+document.getElementById("myDIV").classList.toggle("mystyle");
 ```
-
-- **列表嵌套**
-
-**上一级和下一级之间敲三个空格即可**
-
-- 一级无序列表内容
-   - 二级无序列表内容
-   - 二级无序列表内容
-1. 一级有序列表内容
-   1. 二级有序列表内容
-   2. 二级有序列表内容
-
-# 八、表格
-
-语法：
-
-```
-表头|表头|表头
----|:--:|---:
-内容|内容|内容
-内容|内容|内容
-
-第二行分割表头和内容。
-- 有一个就行，为了对齐，多加了几个
-文字默认居左
--两边加：表示文字居中
--右边加：表示文字居右
-注：原生的语法两边都要用 | 包起来。此处省略
-```
-
-效果如下：
-
-姓名|技能|排行
---|:--:|--:
-刘备|哭|大哥
-关羽|打|二哥
-张飞|骂|三弟
-
-# 九、代码
-
-语法：
-
-单行代码：代码之间分别用一个反引号包起来
-
-```
- `代码内容` 
-```
-
-代码块：代码之间分别用三个反引号包起来，且两边的反引号单独占一行
-
-```
-（```）;
-   代码...
-   代码...
-   代码...
-(```)
-```
-
->为了防止转译，前后三个反引号处加了小括号，实际是没有的。这里只是用来演示，实际中去掉两边小括号即可。
-
-# 十、流程图
-
-```
-  ```flow
-  st=>start: 开始
-  op=>operation: My Operation
-  cond=>condition: Yes or No?
-  e=>end
-  st->op->cond
-  cond(yes)->e
-  cond(no)->op&
-  ```;
-```
-
-效果如下：
-
-```flow
-st=>start: 开始
-op=>operation: My Operation
-cond=>condition: Yes or No?
-e=>end
-st->op->cond
-cond(yes)->e
-cond(no)->op&
-```
-
-以及时序图:
-
-```sequence
-Alice->Bob: Hello Bob, how are you?
-Note right of Bob: Bob thinks
-Bob-->Alice: I am good thanks!
-```
-
-# 十、LaTeX 公式
-
-可以创建行内公式，例如 $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$。或者块级公式：
-
-$$	x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$
-
-# 十一、复选框
-
-使用 `- [ ]` 和 `- [x]` 语法可以创建复选框，实现 todo-list 等功能。例如：
-
-- [ ] 已完成事项
-- [ ] 待办事项1
-- [x] 待办事项2
-
-# 十二、标签
-
-- 标签加 align="center"
-
-示例：
-
-```
-<h1 align="center">标题一</h1>
-```
-
-效果如下：
-
-<h1 align="center">标题一</h1>
-
-- 嵌套标签
-
-示例:
-
-```
-<p align="center">
-  <img src="https://uufe-web.oss-cn-beijing.aliyuncs.com/PicLib/bomb/images/feedback1_1547864347894.png">
-</p>
-```
-
-效果如下：
-
-<p align="center">
-  <img src="https://uufe-web.oss-cn-beijing.aliyuncs.com/PicLib/bomb/images/feedback1_1547864347894.png">
-</p>

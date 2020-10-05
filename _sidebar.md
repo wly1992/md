@@ -1,5 +1,8 @@
 * **学习笔记**
-  * [**MARKDOWN 语法**](/)
-  * [**随手记**](/note)
+  * [**随手记**](/)
   * [**ES6**](/es6)
-  * [**面试**](/interview/)
+  * [**js 基础**](/basics)
+  * [**面试**](/interview)
+  * [**VUE**](/vue)
+  * [**MARKDOWN 语法**](/markdown)
+  
