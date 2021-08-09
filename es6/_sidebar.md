@@ -1,6 +1,15 @@
+<!--
+ * @Autor: Wanglinyu
+ * @Date: 2021-07-02 17:24:26
+ * @LastEditors: Wanglinyu
+ * @LastEditTime: 2021-08-09 10:35:02
+ * @Description: 
+ * @FilePath: \md\es6\_sidebar.md
+-->
 * **ES6小结**
   * [**let 与 const**](/es6/Letconst)
   * [**解构赋值**](/es6/Destructuring)
+  * [**Symbol**](/es6/Symbol)
   * [**Map 与 Set**](/es6/Mapset)
   * [**Reflect 与 Proxy**](/es6/ReflectProxy)
   * [**ES6 字符串**](/es6/String)
