@@ -1,12 +1,6 @@
-<!--
- * @Autor: Wanglinyu
- * @Date: 2021-08-09 10:24:19
- * @LastEditors: Wanglinyu
- * @LastEditTime: 2021-08-09 11:29:40
- * @Description: 
- * @FilePath: \md\vue\_sidebar.md
--->
+
 * **Vue知识总结**
+  * [**vue知识总结**](/vue/summary)
   * [**vue组件之间通信的8种方式**](/vue/componentCommunication)
   * [**Vuex**](/vue/vuex)
   * [**vue2.X+vue cli3优化**](/vue/optimization)
