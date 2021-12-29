@@ -1,5 +1,9 @@
 * **我的总结及分享**
   * [**git常用命令**](/share/README)
+  * [**vue基础总结**](/share/vuenote)
+  * [**vue双向绑定原理**](/share/towWayBind)
+  * [**vue2.0项目优化**](/share/vue2)
+  * [**vite构建vue2.X项目总结**](/share/vite)
   * [**markdown语法总结**](/share/markdown)
   * [**webpack的常见配置**](/share/webpack)
-  * [**Web安全**](/share/websafe)
+  * [**web应用常见安全漏洞一览**](/share/websafe)

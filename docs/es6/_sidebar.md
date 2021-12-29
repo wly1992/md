@@ -4,7 +4,7 @@
   * [**解构赋值**](/es6/Destructuring)
   * [**Symbol**](/es6/Symbol)
   * [**Map 与 Set**](/es6/Mapset)
-  * [**Reflect 与 Proxy**](/es6/ReflectProxy)
+  * [**Reflect 与 Proxy**](/es6/Reflectproxy)
   * [**ES6 字符串**](/es6/String)
   * [**ES6 数值**](/es6/Number)
   * [**ES6 对象**](/es6/Object)

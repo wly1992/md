@@ -1,2 +1,2 @@
-* **收藏分享**
-  * [**网站资源**](/collect/README)
+
+  * [**收藏分享**](/collect/README)

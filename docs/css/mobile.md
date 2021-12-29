@@ -1,42 +1,40 @@
-# 移动端
+### 1.常用的移动端适配方案
 
-## 常用的移动端适配方案是什么
+1. Rem适配(重点)
 
-Rem适配(重点)
-rem是相对单位,,以html的根节点的fontsize为基准,通过监测浏览器的宽度.动态改变fontsize的大小,达到适配不同宽度的效果.
-onresize事件当窗口或者框架被调整大小时发生的事件;
+> rem是相对单位,,以html的根节点的fontsize为基准,通过监测浏览器的宽度.动态改变fontsize的大小,达到适配不同宽度的效果.onresize事件当窗口或者框架被调整大小时发生的事件;
 
-```
+```js
 <script>
     var fontSize = 50;
-    var _w = document.body.clientWidth;//窗口的大小
-    document.getElementsByTagName("html")[0].style.fontSize = parseInt(_w*50/375*10)/10+"px";
+    var _w = document.body.clientWidth;  //窗口的大小
+    document.getElementsByTagName("html")[0].style.fontSize = parseInt(_w*fontSize/375*10)/10+"px";
     window.onresize = function(){
-        document.getElementsByTagName("html")[0].style.fontSize=parseInt(_w*50/375*10)/10+"px";
+      document.getElementsByTagName("html")[0].style.fontSize=parseInt(_w*fontSize/375*10)/10+"px";
     }
 </script>
 ```
+### 2.Vue Cli 移动端适配
 
-
-## Vue 移动端适配
-
-通过`px2rem-loader`和`amfe-flexible`两个依赖
+> 通过`px2rem-loader`和`amfe-flexible`两个依赖
 
 1. 下载
+
 ```
 npm install  px2rem-loader --save
- 
 npm install amfe-flexible --save
 ```
 2. 在main.js引入
 
-`import "amfe-flexible"`
+```js
+import "amfe-flexible"
+```
 
 3. 将px2rem-loader添加到cssLoaders
 
 在postcss.config.js文件中添加
 
-```
+```js
 module.exports = {
   plugins: {
     // "autoprefixer": { browsers: ["> 1%", "ie > 8", 'last 5 version'] },
@@ -49,25 +47,24 @@ module.exports = {
 
 4. 设置根元素设置的font-size
 
-```
+```css
 html {
-    font-size: 10vw;
-    //font-size: 62.5%;;
+  font-size: 10vw;
+  //font-size: 62.5%;;
 }
 ```
 
-## 动态设置html元素的font-size（页面使用rem做单位）
+### 3.动态设置html元素的font-size（页面使用rem做单位）
 
 1. 设置页面的viewport视口
 
-```
+```html
 <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
 ```
 
 2. 我们以iPhone6设计稿来进行移动端的开发（设计稿是750px）
 
 在JavaScript中，通过window.devicePixelRatio来获取设备的像素比(device pixel ratio)简称DPR
-
 那么我们得到的deviceWidth = 375px; 为了方便在开发的时候量尺寸好算，我们设置html的font-size为50px。
 那么本来根据设计稿量出来的div是80px的话我们要先除以2，得到实际的宽度px，然后要转换为rem，我们还要除以html的font-size，即再除以50，即可得到单位rem的数值。
 也就是说：拿到一个iPhone6设计图，量到的px像素值来除以100，那么得到的值就是多少rem。
@@ -80,44 +77,45 @@ deviceWidth = 500，font-size = 500 / 7.5 = 66.6667px
 ```
 
 动态设置HTML元素的font-size代码如下：
-```
+
+```js
 var html = document.documentElement; //获取到html元素
 var hWidth = html.getBoundingClientRect().width;//获取到html的宽度
 if(hWidth > 640) hWidth = 640; // 当hWidth大于640时，则物理分辨率大于1280（这就看设备的devicePixelRatio这个值了），应该去访问pc网站了
 html.style.fontSize = hWidth/7.5 + "px"; //设置HTML的字体大小 font-size = 50px，1rem = 50px
 ```
 
-如果页面的字体不想使用rem作为单位，那么就使用媒体查询来设置body的font-size。
+3. 如果页面的字体不想使用rem作为单位，那么就使用媒体查询来设置body的font-size。
 
-```
+```css
 @media screen and (min-width: 320px) {
-    body {font-size: 14px;}
+  body {font-size: 14px;}
 }
  
 @media screen and (min-width: 360px) {
-    body {font-size: 16px;}
+  body {font-size: 16px;}
 }
  
 @media screen and (min-width: 400px) {
-    body {font-size: 18px;}
+  body {font-size: 18px;}
 }
  
 @media screen and (min-width: 440px) {
-    body {font-size: 20px;}
+  body {font-size: 20px;}
 }
  
 @media screen and (min-width: 480px) {
-    body {font-size: 22px;}
+  body {font-size: 22px;}
 }
  
 @media screen and (min-width: 640px) and (max-width: 640px) {
-    body {font-size: 28px;}
+  body {font-size: 28px;}
 }
 ```
 
 4. 学习得来的各屏幕的rem适配（终极方案）------- sass语法
 
-```
+```css
 $baseDevice: 750; // 默认iphone6设计稿
 $device: $baseDevice / 2; // 375 ，iphone6设备宽度
 $baseFontSize: 100px;
@@ -181,7 +179,7 @@ flexible的实质
 
 flexible实际上就是能过JS来动态改写meta标签，代码类似这样：
 
-```
+```js
 var metaEl = doc.createElement('meta');
 var scale = isRetina ? 0.5:1;
 metaEl.setAttribute('name', 'viewport');

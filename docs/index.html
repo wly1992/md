@@ -18,15 +18,16 @@
       loadNavbar: true,
       onlyCover: true,
       coverpage: true,
-      subMaxLevel: 2,
+      subMaxLevel: 3,
       auto2top: true,
+      homepage: 'homepage.md',
       name: 'Xly的前端笔记',
-      autoHeader: true,
+      // autoHeader: true,
       mergeNavbar: true,
       // logo: '/assets/img/logo.jpg',
       search: {
         maxAge: 86400000, // 过期时间，单位毫秒，默认一天
-        paths: [], // or 'auto'
+        paths: ['/', '/base/', '/collect/', '/css/', '/es6/', '/interview/', '/share/'],
         placeholder: '搜索',
         noData: '找不到结果',
         depth: 6,

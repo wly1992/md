@@ -1,5 +1,5 @@
 <!-- ![logo](/assets/img/logo.jpg =100x100) -->
-<img src="/assets/img/logo.jpg" width = "200" height = "200" alt="logo" align=center />
+<img src="./assets/img/logo.jpg" width = "200" height = "200" alt="logo" align=center />
 
 # **Xly的前端笔记**
 
