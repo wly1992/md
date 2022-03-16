@@ -4,6 +4,7 @@
   * [**vue双向绑定原理**](/share/towWayBind)
   * [**vue2.0项目优化**](/share/vue2)
   * [**vite构建vue2.X项目总结**](/share/vite)
+  * [**浏览器从URL输入到渲染发生的过程全面解析**](/share/navigator)
   * [**markdown语法总结**](/share/markdown)
   * [**webpack的常见配置**](/share/webpack)
   * [**web应用常见安全漏洞一览**](/share/websafe)
