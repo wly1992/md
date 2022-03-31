@@ -1,6 +1,6 @@
 # HTML面试题
 
-## 1.doctype的作⽤是什么？
+## doctype的作⽤是什么？
 
 DOCTYPE是html5标准⽹⻚声明，且必须声明在HTML⽂档的第⼀⾏。来告知浏览器的解析器⽤什么⽂档标准解析这个 ⽂档，不同的渲染模式会影响到浏览器对于 CSS 代码甚⾄ JavaScript 脚本的解析
 
@@ -9,19 +9,19 @@ DOCTYPE是html5标准⽹⻚声明，且必须声明在HTML⽂档的第⼀⾏。�
 - BackCompat：怪异模式，浏览器使⽤⾃⼰的怪异模式解析渲染⻚⾯。（如果没有声明DOCTYPE，默认就是这个 模式）
 - CSS1Compat：标准模式，浏览器使⽤W3C的标准解析渲染⻚⾯。
 
-### 这三种模式的区别是什么？
+#### 这三种模式的区别是什么？
 
 - 标准模式(standards mode)：⻚⾯按照 HTML 与 CSS 的定义渲染 
 - 怪异模式(quirks mode)模式： 会模拟更旧的浏览器的⾏为 
 - 近乎标准(almost standards)模式： 会实施了⼀种表单元格尺⼨的怪异⾏为（与IE7之前的单元格布局⽅式⼀致）， 除此之外符合标准定义
 
-## 2.HTML、XHTML、XML有什么区别
+## HTML、XHTML、XML有什么区别
 
 - HTML(超⽂本标记语⾔): 在html4.0之前HTML先有实现再有标准，导致HTML⾮常混乱和松散 
 - XML(可扩展标记语⾔): 主要⽤于存储数据和结构，可扩展，⼤家熟悉的JSON也是相似的作⽤，但是更加轻量⾼ 效，所以XML现在市场越来越⼩了 
 - XHTML(可扩展超⽂本标记语⾔): 基于上⾯两者⽽来，W3C为了解决HTML混乱问题⽽⽣，并基于此诞⽣了 HTML5，开头加⼊ `<!DOCTYPE html>` 的做法因此⽽来，如果不加就是兼容混乱的HTML，加了就是标准模式。
 
-## 3.什么是data-属性？
+## 什么是data-属性？
 
 HTML的数据属性，⽤于将数据储存于标准的HTML元素中作为额外信息,我们可以通过js访问并操作它，来达到操作数据的⽬的。
 
@@ -31,7 +31,7 @@ HTML的数据属性，⽤于将数据储存于标准的HTML元素中作为额外
 
 > 前端框架出现之后，这种⽅法已经不流⾏了
 
-## 4.你对HTML语义化的理解？
+## 你对HTML语义化的理解？
 
 语义化是指使⽤恰当语义的html标签，让⻚⾯具有良好的结构与含义，⽐如 `<p>` 标签就代表段落， `<article>` 代表正⽂ 内容等等。
 
@@ -142,3 +142,52 @@ cookies、localstorage、sessionstorage、Web SQL、IndexedDB
 - Web SQL：2010年被W3C废弃的本地数据库数据存储⽅案，但是主流浏览器（⽕狐除外）都已经有了相关的实 现，web sql类似于SQLite，是真正意义上的关系型数据库，⽤sql进⾏操作，当我们⽤JavaScript时要进⾏转换， 较为繁琐。
 
 - IndexedDB： 是被正式纳⼊HTML5标准的数据库储存⽅案，它是NoSQL数据库，⽤键值对进⾏储存，可以进⾏快 速读取操作，⾮常适合web场景，同时⽤JavaScript进⾏操作会⾮常⽅便。
+
+## 提高网站性能的方式有哪些?
+
+1. 压缩源码和图片
+
+2. 选择合适的图片格式(颜色数多用jpg，颜色少用png，矢量图：字体图标，如 font-awesome；svg 等) 
+
+3. 合并静态资源(减少HTTP请求:图片懒加载,sprite雪碧图,c3特效代替图片) 
+
+4. 把多个css合并为一个css，把图片组合成雪碧图
+
+5. 使用CDN(对公开库，能和其他网站共享缓存)
+
+6. 把css放页面头部，js放底部(这样不会阻塞页面渲染，让页面出现长时间的空白) 
+
+（1）减少http请求次数：CSS Sprites, JS、CSS源码压缩、图片大小控制合适；网页Gzip，CDN托管，data缓存，图片服务器。
+（2） 前端模板 JS+数据，减少由于HTML标签导致的带宽浪费，前端用变量保存AJAX请求结果，每次操作本地变量，不用请求，减少请求次数
+
+（3） 用innerHTML代替DOM操作，减少DOM操作次数，优化javascript性能。
+
+（4） 当需要设置的样式很多时设置className而不是直接操作style。
+
+（5） 少用全局变量、缓存DOM节点查找的结果。减少IO读取操作。
+
+（6） 避免使用CSS Expression（css表达式)又称Dynamicproperties(动态属性)。
+
+（7） 图片预加载，将样式表放在顶部，将脚本放在底部  加上时间戳。
+
+（8） 避免在页面的主体布局中使用table，table要等其中的内容完全下载之后才会显示出来，显示比div+css布局慢。
+
+## preload
+
+ link元素的 rel 属性的属性值preload能够让你在你的HTML页面中 head 元素内部书写一些声明式的资源获取请求，可以指明哪些资源是在页面加载完成后即刻需要的。对于这种即刻需要的资源，你可能希望在页面加载的生命周期的早期阶段就开始获取，在浏览器的主渲染机制介入前就进行预加载。这一机制使得资源可以更早的得到加载并可用，且更不易阻塞页面的初步渲染，进而提升性能。
+
+```html
+ <link rel="stylesheet" href="styles/main.css">
+ <link rel="preload" href="sintel-short.mp4" as="video" type="video/mp4">
+ <link rel="preload" href="fonts/cicle_fina-webfont.eot" as="font" type="application/vnd.ms-fontobject" crossorigin="anonymous">
+ <link rel="preload" href="bg-image-narrow.png" as="image" media="(max-width: 600px)">
+```
+
+脚本化预加载
+```javascript
+var preloadLink = document.createElement("link");
+preloadLink.href = "myscript.js";
+preloadLink.rel = "preload";
+preloadLink.as = "script";
+document.head.appendChild(preloadLink);
+```

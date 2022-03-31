@@ -1,4 +1,4 @@
-### 单行溢出省略
+## 单行溢出省略
 
 ```css
 overflow: hidden;
@@ -6,7 +6,7 @@ text-overflow: ellipsis;
 white-space: nowrap;
 ```
 
-### 多行溢出省略
+## 多行溢出省略
 
 ```css
 display: -webkit-box;
@@ -16,7 +16,7 @@ overflow : hidden;
 text-overflow: ellipsis; 
 ```
 
-### 弹性居中
+## 弹性居中
 
 ```css
 display: flex;
@@ -24,7 +24,7 @@ justify-content: center;
 align-items: center;
 ```
 
-### 计数器
+## 计数器
 
 ```css
 ul {
@@ -36,7 +36,7 @@ li::before {
 }
 ```
 
-### 选择元素高亮
+## 选择元素高亮
 
 ```csss
 /*Webkit,Opera9.5+,Ie9+*/
@@ -51,7 +51,7 @@ li::before {
 }
 ```
 
-### 模糊差值
+## 模糊差值
 
 ```css
 .wrapper{

@@ -35,16 +35,73 @@ ul ol li .red { ... }
 - link⽅式的样式权重⾼于@import的权重。 
 - 使⽤dom控制样式时的差别。当使⽤javascript控制dom去改变样式的时候，只能使⽤link标签，因为@import不是 dom可以控制的。
 
-## 有哪些⽅式（CSS）可以隐藏⻚⾯元素？
 
-- `opacity:0` ：本质上是将元素的透明度将为0，就看起来隐藏了，但是依然占据空间且可以交互 
-- `visibility:hidden` : 与上⼀个⽅法类似的效果，占据空间，但是不可以交互了 
-- `overflow:hidden` : 这个只隐藏元素溢出的部分，但是占据空间且不可交互 
-- `display:none` : 这个是彻底隐藏了元素，元素从⽂档流中消失，既不占据空间也不交互，也不影响布局 
-`z-index:-9999` : 原理是将层级放到底部，这样就被覆盖了，看起来隐藏了 
-`transform: scale(0,0)` : 平⾯变换，将元素缩放为0，但是依然占据空间，但不可交互
+## 隐藏页面中的某个元素的方法有哪些？
 
-> 还有⼀些靠绝对定位把元素移到可视区域外，或者⽤clip-path进⾏裁剪的操作过于Hack，就不提了。
+> 隐藏类型
+
+屏幕并不是唯一的输出机制，比如说屏幕上看不见的元素（隐藏的元素），其中一些依然能够被读屏软件阅读出来（因为读屏软件依赖于可访问性树来阐述）。为了消除它们之间的歧义，我们将其归为三大类：
+
+- 完全隐藏：元素从渲染树中消失，不占据空间。
+- 视觉上的隐藏：屏幕中不可见，占据空间。
+- 语义上的隐藏：读屏软件不可读，但正常占据空。
+
+> 完全隐藏
+
+1.display 属性
+
+```
+display: none;
+```
+
+2.hidden 属性
+
+HTML5 新增属性，相当于 display: none
+
+```html
+<div hidden></div>
+```
+
+> 视觉上的隐藏
+
+1.利用 position 和 盒模型(margin) 将元素移出可视区范围
+
+2.利用 transfrom
+
+- 缩放 transform: scale(0);
+- 移动 translateX(-99999px);
+- 旋转 rotateY(90deg);
+
+3.设置其大小为0
+
+```css
+height: 0;
+width: 0;
+font-size: 0;
+```
+
+4.设置透明度为0 opacity: 0;
+
+5.visibility属性  visibility: hidden;
+
+6.层级覆盖，z-index 属性,设置一个层级较高的元素覆盖在此元素上。
+
+7.clip-path 裁剪
+
+```css
+clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+```
+
+> 语义上的隐藏
+
+aria-hidden 属性
+
+读屏软件不可读，占据空间，可见。
+
+```html
+<div aria-hidden="true">
+</div>
+```
 
 ## em\px\rem区别？
 

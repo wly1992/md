@@ -1,6 +1,6 @@
-### github最全前端导航
+## github最全前端导航
 [FrontEndGitHub](https://github.com/FrontEndGitHub/FrontEndGitHub)
-### 优秀网站&效果
+## 优秀网站&效果
 
 1. [404猴子](https://codepen.io/UnfocusedDrive/pen/npDyq)
 2. [中国古典颜色表](https://colors.ichuantong.cn/)
@@ -11,7 +11,7 @@
 7. [故宫博物院藏品总目](https://pano.dpm.org.cn/)
 8. [全历史](https://www.allhistory.com/)
 
-### 大厂团队
+## 大厂团队
 
 1. [阿里UED](http://www.aliued.com/)
 2. [滴滴 FE BLOG](https://github.com/DDFE/DDFE-blog)
@@ -26,7 +26,7 @@
 11. [蚂蚁数据体验技术团队](https://github.com/ProtoTeam/blog)
 12. [TNFE-Weekly](https://github.com/tnfe/TNT-Weekly)
 
-### 工具库&&网站
+## 工具库&&网站
 
 > 读源码 可以随手封装出一个类库
 1. [outils](https://github.com/proYang/outils)
@@ -39,7 +39,7 @@
 8. [LightHouse](https://github.com/GoogleChrome/lighthouse)是一个开源的自动化工具，用于改进网络应用的质量。在里面你可以看到它给你各个方面的建议，比如图片、css、js 这些文件的处理，还有 html 里面标签的使用，缓存处理等建议，可以根据这些来对网站进行优化。
 9. [CodeSandbox](https://codesandbox.io/)在线的代码编辑器
 10. [HitUP](https://hitup.wondertools.to)
-### 好用的VS code插件
+## 好用的VS code插件
 1. CODELF 变量命名神器
 2. Live Server 静态服务器
 3. Code Runner 代码运行器
@@ -53,7 +53,7 @@
 11. Wrap Console Log Lite 快捷的输出变量
 12. Auto Close Tag 自动关闭标签
 13. Bracket Pair Colorizer 2 括号对齐利器
-### npm常用包(前端)
+## npm常用包(前端)
 
 - axios -> 异步请求
 - jwt-decode -> 解析token
@@ -98,7 +98,7 @@
 - scrollama (opens new window)-> 网页滚动效果库
 - PhotoSwipe (opens new window)-> 图片预览插件
 
-### 数据大屏看板
+## 数据大屏看板
 
 - **阿里云-DataV**，可视化数据，目前已升级云端Saas服务了。
 - **腾讯云图**， 是一站式数据可视化展示平台

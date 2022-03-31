@@ -1,33 +1,6 @@
+## git常用命令
 
-### git常用命令
-
-```js
-1. 创建远程仓库
-2. 创建本地仓库
-    a. 配置.gitignore
-    b. git init
-    c. git add .
-    d. git commit -m "init"
-3. 将本地仓库推送到远程仓库
-    git remote add origin url
-    git push origin master
-4. 在本地创建dev分支, 并推送到远程
-    git checkout -b dev
-    git push origin dev
-5. 如果本地有修改
-    git add .
-    git commit -m "xxx"
-    git push origin dev
-6. 新的同事: 克隆仓库
-    git clone url
-    git checkout -b dev origin/dev
-    git pull origin dev
-7. 如果远程修改
-    git pull origin dev
-git config --global user.
 ```
-
-```js
 git config --global user.name "xxx"   //配置git 用户名
 git config --global user.email "xxx@xx.com" //配置git 邮箱
 git clone xxx.git  //克隆
@@ -38,7 +11,7 @@ git status //查看状态
 git branch //查看本地分支
 git branch -a //查看远程分支
 git branch xxx //创建分支
-git branch -d //删除分支
+git branch -d //删除本地分支
 git checkout xxx //切换分支
 git checkout -b xxx //创建并切换分支
 git stash //暂存
@@ -55,30 +28,23 @@ git merge //合并分支
 git rebase master //修改主分支基础点
 git remote rm origin  //删除源
 git rm -r --cache . //移除所有文件
+
+git reflog  //查看 `<hash_val>`
+git branch <branch_name> <hash_val>  //恢复被删除的分支
+
+git push origin --delete <branch_name>  //删除远程分支
+git remote prune origin  //删除本地缓存的远程分支
+
+git remote add [shortname] [url] # 添加远程版本库：
+git remote rm name  # 删除远程仓库
+git remote rename old_name new_name  # 修改仓库名
+
+git reset [--soft | --mixed | --hard] [HEAD] # 版本回撤
+git revert  # 撤销某次操作，此次操作之前和之后的commit和history都会保留，并且把这次撤销作为一次最新的提交
 ```
 
-> 如果坚持要删除该分支的话，就需要在命令中使用-D选项
+## git revert 和 git reset的区别 
 
-```
-git branch -D <branch_name>
-```
-
-### 恢复被删除的分支
-
-> git reflog查看 `<hash_val>`
-
-```
-git branch <branch_name> <hash_val>
-```
-
-### 删除远程分支
-
-```
-git push origin --delete <branch_name>
-```
-
-### 删除本地缓存的远程分支
-
-```
-git remote prune origin
-```
+1. git revert是用一次新的commit来回滚之前的commit，git reset是直接删除指定的commit。 
+2. 在回滚这一操作上看，效果差不多。但是在日后继续merge以前的老版本时有区别。因为git revert是用一次逆向的commit“中和”之前的提交，因此日后合并老的branch时，导致这部分改变不会再次出现，但是git reset是之间把某些commit在某个branch上删除，因而和老的branch再次merge时，这些被回滚的commit应该还会被引入。 
+3. git reset 是把HEAD向后移动了一下，而git revert是HEAD继续前进，只是新的commit的内容和要revert的内容正好相反，能够抵消要被revert的内容。

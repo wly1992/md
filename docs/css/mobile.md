@@ -1,4 +1,4 @@
-### 1.常用的移动端适配方案
+## 1.常用的移动端适配方案
 
 1. Rem适配(重点)
 
@@ -14,7 +14,7 @@
     }
 </script>
 ```
-### 2.Vue Cli 移动端适配
+## 2.Vue Cli 移动端适配
 
 > 通过`px2rem-loader`和`amfe-flexible`两个依赖
 
@@ -54,7 +54,7 @@ html {
 }
 ```
 
-### 3.动态设置html元素的font-size（页面使用rem做单位）
+## 3.动态设置html元素的font-size（页面使用rem做单位）
 
 1. 设置页面的viewport视口
 

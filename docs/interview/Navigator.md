@@ -1,5 +1,115 @@
 # 浏览器与新技术
 
+## 浏览器对象模型 (BOM)
+
+### Window 对象
+
+所有 JavaScript 全局对象、函数以及变量均自动成为 window 对象的成员。
+全局变量是 window 对象的属性。全局函数是 window 对象的方法。
+甚至 HTML DOM 的 document 也是 window 对象的属性之一：
+
+```js
+window.document.getElementById("header");
+```
+
+### Window 尺寸:
+
+1. window.innerHeight  
+2. document.documentElement.clientHeight
+3. document.body.clientHeight
+
+### 其他 Window 方法
+
+- window.open() - 打开新窗口
+- window.close() - 关闭当前窗口
+- window.moveTo() - 移动当前窗口
+- window.resizeTo() - 调整当前窗口的尺寸
+
+### Window属性
+
+1. Window Screen
+
+- screen.availWidth - 可用的屏幕宽度
+
+2. Window Location
+
+- location.hostname 返回 web 主机的域名
+- location.pathname 返回当前页面的路径和文件名
+- location.port 返回 web 主机的端口 （80 或 443）
+- location.protocol 返回所使用的 web 协议（http: 或 https:）
+- location.href 属性返回当前页面的 URL。
+
+- window.location.assign(url) ： 加载 URL 指定的新的 HTML 文档。 就相当于一个链接，跳转到指定的url，当前页面会转为新页面内容，可以点击后退返回上一个页面。
+
+- window.location.replace(url) ： 通过加载 URL 指定的文档来替换当前文档 ，这个方法是替换当前窗口页面，前后两个页面共用一个窗口，所以是没有后退返回上一页的
+
+3. Window History
+
+- history.back() - 与在浏览器点击后退按钮相同
+- history.forward() - 与在浏览器中点击向前按钮相同
+- history.go() - 这个方法来实现向前，后退的功能
+
+4. Window Navigator
+
+```html
+<script>
+txt = "<p>浏览器代号: " + navigator.appCodeName + "</p>";
+txt+= "<p>浏览器名称: " + navigator.appName + "</p>";
+txt+= "<p>浏览器版本: " + navigator.appVersion + "</p>";
+txt+= "<p>启用Cookies: " + navigator.cookieEnabled + "</p>";
+txt+= "<p>硬件平台: " + navigator.platform + "</p>";
+txt+= "<p>用户代理: " + navigator.userAgent + "</p>";
+txt+= "<p>用户代理语言: " + navigator.language + "</p>";
+document.getElementById("example").innerHTML=txt;
+</script>
+```
+
+5. JavaScript 弹窗
+
+- window.confirm() 
+- window.prompt() 
+- window.alert()
+
+6. JavaScript 计时事件
+
+- setInterval() / clearInterval
+- setTimeout() / clearTimeout
+
+7. JavaScript Cookie
+
+- document.cookie
+
+
+## 全局变量和window属性上定义的变量
+
+- 知识点1
+
+全局变量和window属性上定义的变量的区别：
+全局变量不能通过delete删除，而window属性上定义的变量可以通过delete删除
+
+```js
+var num=123;
+window.str="string";
+delete num;
+delete str;
+console.log(num); //123
+
+console.log(str); //str is not defined
+//全局变量不能通过 delete 删除，因为通过 var 定义全局变量会有一个名为 [Configurable] 的属性，默认值为 false，所以这样定义的属性不可以通过 delete 操作符删除
+```
+
+- 知识点2
+
+尝试访问未声明的变量会报错，..is not defined
+但是通过查询window查询，可以知道某个可能未声明的变量是否存在，不会报错，只会显示undefined
+
+```js
+var newValue=oldValue; // 报错：oldValue is not defined
+var newValue=window.oldValue; // 不会报错
+console.log(newValue); // undefined
+```
+
+
 ## 常⻅的浏览器内核有哪些?
 
 浏览器/RunTime|内核（渲染引擎）|JavaScript 引擎
@@ -130,6 +240,32 @@ document.body.appendChild(fragment);
   will-change: transform; 
 }
 ```
+
+## 一些 DOM 对象常用方法
+
+getElementById()  返回带有指定 ID 的元素。
+
+getElementsByTagName()	返回包含带有指定标签名称的所有元素的节点列表（集合/节点数组）。
+
+getElementsByClassName()	返回包含带有指定类名的所有元素的节点列表。
+
+appendChild()	把新的子节点添加到指定节点。
+
+removeChild()	删除子节点。
+
+replaceChild()	替换子节点。
+
+insertBefore()	在指定的子节点前面插入新的子节点。
+
+createAttribute()	创建属性节点。
+
+createElement()	创建元素节点。
+
+createTextNode()	创建文本节点。
+
+getAttribute()	返回指定的属性值。
+
+setAttribute()	把指定属性设置或修改为指定的值。
 
 ## 前端如何实现即时通讯？
 
@@ -279,3 +415,62 @@ nginx是⼀款极其强⼤的web服务器，其优点就是轻量级、启动快
 反向代理的原理很简单，即所有客户端的请求都必须先经过nginx的处理，nginx作为代理服务器再讲请求转发给node或 者java服务，这样就规避了同源策略。
 
 ### 其它跨域⽅案
+
+1.  HTML5 XMLHttpRequest 有⼀个API，postMessage()⽅法允许来⾃不同源的脚本采⽤异步⽅式进⾏有限的通信， 可以实现跨⽂本档、多窗⼝、跨域消息传递。
+2. WebSocket 是⼀种双向通信协议，在建⽴连接之后，WebSocket 的 server 与 client 都能主动向对⽅发送或接收数 据，连接建⽴好了之后 client 与 server 之间的双向通信就与 HTTP ⽆关了，因此可以跨域。 
+3. window.name + iframe：window.name属性值在不同的⻚⾯（甚⾄不同域名）加载后依旧存在，并且可以⽀持⾮常 ⻓的 name 值，我们可以利⽤这个特点进⾏跨域。 
+4. location.hash + iframe：a.html欲与c.html跨域相互通信，通过中间⻚b.html来实现。 三个⻚⾯，不同域之间利⽤ iframe的location.hash传值，相同域之间直接js访问来通信。 
+5. document.domain + iframe： 该⽅式只能⽤于⼆级域名相同的情况下，⽐如 a.test.com 和 b.test.com 适⽤于该⽅ 式，我们只需要给⻚⾯添加 document.domain ='test.com' 表示⼆级域名都相同就可以实现跨域，两个⻚⾯都通过js 强制设置document.domain为基础主域，就实现了同域。
+
+## h5和css3新特性旧浏览器不支持?
+
+IE8以下不支持h5的新标签，解决:引入html5shiv.js
+
+不支持HTML5的新标签，如`<header>`、`<nav>`等标签在IE8无法渲染。html5shiv.js可帮助IE6-8浏览器兼容HTML5语义化标签
+
+## IE浏览器的条件注释针对IE5-9
+
+```
+<!--[if ！ie]>不是ie5-9版本的浏览器<！[endif]-->
+<!--[if ie 5]>我是ie5才显示的内容<！[endif]--> 
+<!--[if lt ie 9]>小于ie9版本的浏览器<！[endif]-->
+<!--[if gt ie 7]>大于ie7版本的浏览器<！[endif]-->
+<!--[if lte ie 6]>小于等于ie6版本的浏览器<！[endif]-->                       
+<!--[if gte ie 6]>大于等于ie6版本的浏览器<！[endif]--> 
+```
+
+## meta标签的作用是什么?
+
+meta是head区的一个辅助性标签。其主要作用有：搜索引擎优化（SEO），定义页面使用语言，自动刷新并指向新的页面，实现网页转换时的动态效果，控制页面缓冲，网页定级评价，控制网页显示的窗口等！
+
+## html标签语义化的理解?
+
+1. HTML语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析；
+2. 即使在没有样式CSS 的情况下也能以一种文档格式显示，并且是容易阅读的；
+3. 搜索引擎的爬虫也依赖于HTML标记来确定上下文和各个关键字的权重，有利于SEO；
+4. 使阅读源代码的人更容易将网站分块，便于阅读、维护和理解；
+
+事件机制（事件捕获和事件冒泡 ）
+
+重点：事件捕获，事件冒泡，执行顺序是先捕获，后冒泡。事件委托，DOM事件
+
+事件捕获：通俗的理解就是，当鼠标点击或者触发dom事件时，浏览器会从根节点开始由外到内进行事件传播，即点击了子元素，如果父元素通过事件捕获方式注册了对应的事件的话，会先触发父元素绑定的事件。
+
+事件冒泡：与事件捕获恰恰相反，事件冒泡顺序是由内到外进行事件传播，直到根节点。
+
+dom标准事件流的触发的先后顺序为：先捕获再冒泡，即当触发dom事件时，会先进行事件捕获，捕获到事件源之后通过事件传播进行事件冒泡
+
+事件绑定的方法：
+`addEventListener(event, listener, useCapture)`
+ 三个参数:
+ - 代表事件
+ - 监听函数
+ - 是否在捕获阶段进行事件捕捉，默认false，在事件冒泡阶段进行捕捉。
+
+> 通过dom.onclick = function(){} 在事件冒泡阶段进行捕捉
+
+`attachEvent(event,listener) `主要用于ie10以下的ie浏览器
+
+> 阻止冒泡的方法是:event.stopPropagation();阻止默认事件:event.preventDefault()
+
+
